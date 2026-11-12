@@ -7,6 +7,8 @@ window.__ModuleLoader__.load({
     const NS = 'balanceBurn'
     const ROUTE = '/api/balance-burn'
     const SETTINGS_ROUTE = '/api/balance-burn/settings'
+    /** Official platform top-up page (same URL the DSH account panel uses). */
+    const TOP_UP_URL = 'https://platform.deepseek.com/top_up'
     /** Kept in step with `src/settings.js`; a test asserts equality. */
     const DEFAULT_SETTINGS = Object.freeze({
       targetDays: 30,
@@ -77,6 +79,7 @@ window.__ModuleLoader__.load({
       changeNew: '新增',
       noBaseline: '—',
       topUpTitle: '充值建议',
+      topUpNow: '去充值',
       suggestedLabel: '建议充值',
       suggested: '建议充值 {amount}',
       targetDays: '目标天数',
@@ -185,6 +188,7 @@ window.__ModuleLoader__.load({
       changeNew: 'new',
       noBaseline: '—',
       topUpTitle: 'Top-up advice',
+      topUpNow: 'Top up',
       suggestedLabel: 'Suggested top-up',
       suggested: 'Suggested top-up {amount}',
       targetDays: 'Target days',
@@ -487,7 +491,8 @@ window.__ModuleLoader__.load({
 }
 .bb-actions { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
 .bb-button {
-  padding: 4px 11px; border: 0.5px solid var(--dsw-alias-border-l2); border-radius: 7px;
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 11px; text-decoration: none; border: 0.5px solid var(--dsw-alias-border-l2); border-radius: 7px;
   background: var(--dsw-alias-bg-base); color: var(--dsw-alias-label-primary);
   font: inherit; font-size: 11px; cursor: pointer;
 }
@@ -1214,10 +1219,21 @@ window.__ModuleLoader__.load({
               'div',
               { className: 'bb-actions' },
               h(
+                'a',
+                {
+                  className: 'bb-button bb-primary',
+                  href: TOP_UP_URL,
+                  target: '_blank',
+                  rel: 'noreferrer noopener',
+                },
+                t('topUpNow'),
+                h('span', { 'aria-hidden': true }, '↗'),
+              ),
+              h(
                 'button',
                 {
                   type: 'button',
-                  className: 'bb-button bb-primary',
+                  className: 'bb-button',
                   disabled: forecast.suggestedTopUp === null,
                   onClick: copy,
                 },
