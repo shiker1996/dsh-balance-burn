@@ -1,6 +1,6 @@
 {
   "name": "dsh-balance-burn",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "DeepSeek 余额消耗看板：底栏常驻余额、最低/最长可用天数与目标天数、1/7/30 天速率、充值建议与账号口径，全部可核对。",
   "license": "MIT",
   "repository": {
