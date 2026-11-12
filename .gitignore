@@ -1,0 +1,7 @@
+node_modules/
+package-lock.json
+preview/shot*.png
+*.log
+samples/
+preview/crop*.png
+preview/preview-full.png

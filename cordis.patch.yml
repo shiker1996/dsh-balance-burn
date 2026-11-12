@@ -1,0 +1,5 @@
+# The balance burn bundle: one Host row. The browser half rides the same row
+# through dsh.client in package.json.
+- insert:
+    - id: balance-burn
+      name: 'dsh-balance-burn'

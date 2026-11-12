@@ -1,0 +1,62 @@
+{
+  "name": "dsh-balance-burn",
+  "version": "0.1.0",
+  "description": "DeepSeek 余额消耗看板：底栏常驻余额、最低/最长可用天数与目标天数、1/7/30 天速率、充值建议与账号口径，全部可核对。",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shiker1996/dsh-balance-burn.git"
+  },
+  "homepage": "https://github.com/shiker1996/dsh-balance-burn",
+  "bugs": {
+    "url": "https://github.com/shiker1996/dsh-balance-burn/issues"
+  },
+  "type": "module",
+  "icon": "./icon.svg",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "src",
+    "client.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "README.md",
+    "DESIGN.md",
+    "preview/preview.png"
+  ],
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "deepseek",
+    "balance",
+    "usage",
+    "cost",
+    "quota"
+  ],
+  "scripts": {
+    "test": "node --test \"test/**/*.test.mjs\"",
+    "report": "node scripts/report.mjs",
+    "preview": "node scripts/render-preview.mjs"
+  },
+  "engines": {
+    "node": ">=22.15.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-layout"
+      ]
+    }
+  }
+}
